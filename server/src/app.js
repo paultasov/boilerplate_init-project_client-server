@@ -4,6 +4,8 @@ const cookieParser = require('cookie-parser');
 
 const app = express();
 
+const authRouter = require('./routers/auth.router');
+
 app.use(morgan('dev'));
 app.use(express.json());
 
@@ -15,5 +17,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // routes go here...
+app.use('/api/auth', authRouter);
 
 module.exports = app;
